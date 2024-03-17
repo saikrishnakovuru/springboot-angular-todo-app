@@ -1,0 +1,62 @@
+<div class="container">
+  <form (ngSubmit)="onUpdate(f)" #f="ngForm">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label>Description:</label>
+          @if(todo){
+          <input
+            type="text"
+            class="form-control"
+            required="required"
+            [(ngModel)]="todo.description"
+            name="description"
+            ngModel
+          />
+          }@else{
+          <input
+            type="text"
+            class="form-control"
+            required="required"
+            name="description"
+            ngModel
+            [(ngModel)]="description"
+          />
+          }
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label>Target Date:</label>
+          @if(todo){
+          <input
+            type="date"
+            class="form-control"
+            required="required"
+            [ngModel]="todo.targetDate | date : 'yyyy-MM-dd'"
+            (ngModelChange)="todo.targetDate = $event"
+            ngModel
+            name="targetDate"
+          />
+          }@else {
+          <input
+            type="date"
+            class="form-control"
+            required="required"
+            [(ngModel)]="targetDate"
+            ngModel
+            name="targetDate"
+          />
+          }
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </form>
+</div>

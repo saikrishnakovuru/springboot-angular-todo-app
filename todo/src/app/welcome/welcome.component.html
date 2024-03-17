@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <a class="list-group-item" style="margin: 20px; background-color: bisque">
+        Welcome {{ loggedInPersonName }}
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        (click)="goToTodosPage()"
+      >
+        GoTo Todo's Page
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <button
+      class="btn btn-success"
+      style="margin: 20px"
+      (click)="getWelcomeMessage()"
+    >
+      Get Welcome Message
+    </button>
+    @if (message) {
+    <p>Your message is {{ message }}</p>
+    }
+  </div>
+</div>

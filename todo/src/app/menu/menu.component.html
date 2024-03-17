@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <div class="navbar-header">
+    <a
+      href="https://www.linkedin.com/in/saikrishna-kovuru-06b09729a/"
+      class="navbar-brand"
+      >LinkedIn</a
+    >
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      @if (isLoginOrLogout !== false) {
+      <li>
+        <a
+          [routerLink]="['/welcome/sai']"
+          class="nav-link"
+          routerLinkActive="active"
+          >Home</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/todos']" class="nav-link">Todos</a>
+      </li>
+      }
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      @if (isLoginOrLogout === false) {
+      <li routerLinkActive="active">
+        <a [routerLink]="['/login']" class="nav-link">Login</a>
+      </li>
+      } @if (isLoginOrLogout !== false) {
+      <li routerLinkActive="active">
+        <a [routerLink]="['/logout']" class="nav-link">Logout</a>
+      </li>
+      }
+    </ul>
+  </div>
+</nav>

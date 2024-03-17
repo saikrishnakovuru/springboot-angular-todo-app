@@ -1,0 +1,43 @@
+<div class="container">
+  @if(recordDeletedMessage){
+  <div class="alert alert-success">{{ recordDeletedMessage }}</div>
+  }
+  <table class="table">
+    <caption>
+      Your Todo's
+    </caption>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Is Done</th>
+        <th>Target Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (todo of todos; track $index) {
+      <tr>
+        <th>{{ todo.description }}</th>
+        <th>{{ todo.done }}</th>
+        <th>{{ todo.targetDate | date }}</th>
+        <th>
+          <button class="btn btn-success" (click)="onUpdate(todo.id)">
+            Update
+          </button>
+          |
+          <button class="btn btn-danger" (click)="onDelete(todo.id)">
+            Delete
+          </button>
+        </th>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <button class="btn btn-success" (click)="addNewTodo()">Add Todo</button>
+      </div>
+    </div>
+  </div>
+</div>
