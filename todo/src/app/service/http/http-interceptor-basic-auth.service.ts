@@ -22,7 +22,7 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor {
     let basicAuthHeaderString = "Basic " + window.btoa(name + ":" + password);
     request.clone({
       setHeaders: {
-        Authorization: basicAuthHeaderString,
+        auth: basicAuthHeaderString,
       },
     });
 

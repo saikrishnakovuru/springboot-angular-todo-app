@@ -15,8 +15,6 @@ public class SpringSecurityConfigurationBasicAuth {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // 1: Response to preflight request doesn't pass access control check
-        // 2: basic auth
         return http
                 .authorizeHttpRequests(
                         auth -> auth

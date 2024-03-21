@@ -9,12 +9,10 @@ export class WelcomeDataService {
 
   public helloWordBeanService() {
     let header = new HttpHeaders({
-      Authorization: this.basicAuthenticationHeader(),
+      auth: this.basicAuthenticationHeader(),
     });
 
-    return this.http.get<HelloWorldBean>("http://localhost:8080/hello", {
-      headers: header,
-    });
+    return this.http.get<HelloWorldBean>("http://localhost:8080/hello");
   }
 
   private basicAuthenticationHeader() {
